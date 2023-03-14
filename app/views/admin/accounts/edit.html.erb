@@ -1,0 +1,30 @@
+<% if current_user %>
+    <%= form_with model: @user, url: account_path, local: true do |form| %>
+        <!--
+        <table>        
+                <tr>
+                    <th>項目</th>
+                    <th>変更前</th>
+                    <th>変更後</th>
+                </tr>
+                <tr>
+                    <th>ユーザー名</th>
+                    <td><%= @user.name %></td>
+                    <td><%= form.text_field :name %>
+                </tr>
+                <tr>
+                    <th>ひとこと</th>
+                    <td><%= @user.description %></td>
+                    <td><%= form.text_field :description %>
+                </tr>
+        </table>
+        -->
+        <%= render "shared/user_form_body", form: form %>
+        <%= form.submit %>
+    <% end %>
+
+    <%= link_to "アカウントを削除", admin_account_path, method: 'delete', data: {'confirm': '本当に削除しますか？'} %>
+
+    <%= link_to "トップへ戻る", admin_root_path %>
+
+<% end %>

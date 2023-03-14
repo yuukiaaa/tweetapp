@@ -1,0 +1,8 @@
+
+<% if current_user %>
+    <% unless current_user.votes.exists?(article_id: article.id) %>
+        <%= link_to "♡#{article.votes.count} いいね", like_article_path(article), remote: true, method: 'patch', class: "btn shadow rounded btn-secondary btn-sm" %>
+    <% else %>
+        <%= link_to "♥#{article.votes.count} いいね", unlike_article_path(article), remote: true, method: 'patch', class: "btn shadow rounded border btn-danger btn-sm" %>
+    <% end %>
+<% end %>

@@ -1,0 +1,35 @@
+<table>
+    <tr>
+        <th><%= form.label :title, "タイトル" %></th>
+        <td><%= form.text_field :title %></td>
+    </tr>
+    <tr>
+        <th><%= form.label :body, "本文" %></th>
+        <td><%= form.text_area :body, rows:10, cols:45 %></td>
+    </tr>
+    <tr>
+        <th><%= form.label :released_at, "掲載開始日", for: "article_released_at_1i" %></th>
+        <td><%= form.datetime_select :released_at, start_year: 2000, end_year: Time.current.year + 1, use_month_numbers: true %>
+    </tr>
+    <tr>
+        <th><%= form.label :expired_at, "掲載終了日", for: "article_expired_at_1i" %></th>
+        <td>
+            <div>
+                <%= form.check_box :no_expiration %>
+                <%= form.label :no_expiration %>
+            </div>
+            <%= form.datetime_select :expired_at, start_year: 2000, end_year: Time.current.year + 1, use_month_numbers: true %>
+        </td>
+    </tr>
+    <tr>
+        <th><%= Article.human_attribute_name(:member_only) %></th>
+        <td>
+            <%= form.check_box :member_only %>
+            <%= form.label :member_only %>
+        </td>
+    </tr>
+    <tr>
+        <td><%= form.hidden_field :user_id, value: current_user.id %></td>
+    <tr>
+
+</table>

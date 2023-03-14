@@ -1,0 +1,9 @@
+<% @page_title = "ブログ記事の画像編集" %>
+<h1><%= @page_title %></h1>
+<h2><%= @article.title %></h2>
+<% url = edit_article_image_path(@article, @image) %>
+<%= form_with model: @image, url: url, local: true do |form| %>
+    <%= render "form", form: form %>
+    <div><%= form.submit %><div>
+<% end %>
+

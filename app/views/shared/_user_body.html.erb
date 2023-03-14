@@ -1,0 +1,29 @@
+<% @page_title = "アカウント情報" %>
+<p class="display-6"><%= @page_title %></p>
+
+<table class="table">
+    <tr>
+        <th>プロフィール画像</th>
+        <td>
+            <% if @user.profile_picture&.attached? %>
+                <%= image_tag @user.profile_picture.variant(resize: "128x128") %>
+            <% end %>
+        </td>
+    </tr>
+
+    <tr>
+        <th>ユーザー名</th>
+        <td><%= @user.name %></td>
+    </tr>
+    
+    <tr>
+        <th>ひとこと</th>
+        <td><%= @user.description %></td>
+    </tr>
+
+</table>
+
+<% if @user == current_user %>
+    <%= link_to "編集", edit_account_path, class: "btn btn-primary" %>
+<% end %>
+<%= link_to "トップへ戻る", root_path, class: "btn btn-primary" %>

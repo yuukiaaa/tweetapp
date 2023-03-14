@@ -1,0 +1,22 @@
+<p>アカウント新規作成</p>
+
+<%= form_with model: @user, url: account_path, local: true do |form| %>
+    <!-- 
+    <tr>
+        <th>項目</th>
+        <th>入力欄</th>
+    </tr>
+    <tr>
+        <%= form.label "ユーザー名" %>
+        <%= form.text_field :name %>
+    </tr>
+    <tr>
+        <%= form.label "パスワード" %>
+        <%= form.text_field :password %>
+    </tr>
+    -->
+    <%= render "shared/user_form_body", form: form %>
+    <%= form.submit "新規作成" class: "btn btn-primary" %>
+
+
+<% end %>

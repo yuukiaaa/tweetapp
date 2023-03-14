@@ -1,0 +1,122 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ .bg-color {
+    background-color: skyblue;
+ }
+
+ .bg-color-admin {
+    background-color: beige;
+ }
+
+ nav.pagination {
+    display: none;
+ }
+
+ .scroll-list {
+    padding: 0;
+ }
+
+ .smartphone-navbar {
+   position: fixed;
+   top: 0;
+   right: 0;
+   z-index: 1;
+   width: 100vw;
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   background: #555;
+   transform: translateX(100vw);
+   transition: all .3s linear;
+ }
+
+ .smartphone-navbar.active {
+   z-index: 1;
+   transform: translateX(0vw);
+ }
+
+
+
+ .hamburger {
+   position: fixed;
+   margin: 0px;
+   padding: 0px;
+   top: 20px;
+   right: 20px;
+   z-index: 2;
+   width: 40px;
+   height: 40px;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   background: #57a2c7;
+   color: #333;
+   cursor: pointer;
+   border-radius: 5px;
+ }
+
+ .undisplayed {
+   display: none;
+ }
+
+ .hamburger span {
+   display: inline-block;
+   transition: all .5s;
+   position: absolute;
+   box-sizing: border-box;
+   cursor: pointer;
+ }
+
+ .hamburger span:nth-child(1) {
+   top:16px;
+   transform: scale(1, 1);
+ }
+ .hamburger span:nth-child(2) {
+   margin: 8px 0;
+   transform: scale(1, 1);
+ }
+ .hamburger span:nth-child(3) {
+   top: 0;
+   transform: scale(1, 1);
+ }
+
+ .hamburger.active span:nth-of-type(1) {
+   transform: scale(1,1) translateX(-0.3px) translateY(-8px) rotate(-45deg);
+ }
+ .hamburger.active span:nth-of-type(2) {
+   opacity: 0;
+ }
+ .hamburger.active span:nth-of-type(3) {
+   transform: scale(1,1) translateX(0.3px) translateY(8px) rotate(45deg);
+ }
+
+
+ .hamburger.active {
+   position: fixed;
+   z-index: 2;
+ }
+
+ .menu.active {
+   transform: translateX(0);
+   position: fixed;
+   z-index: 1;
+ }
+
+

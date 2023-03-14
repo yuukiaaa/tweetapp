@@ -1,0 +1,37 @@
+<table>
+    <tr>
+        <th>項目</th>
+        <% if current_user %><th>変更前</th><% end %>
+        <th>入力欄</th>
+    </tr>
+    <tr>
+        <td><%= form.label "ユーザー名" %></td>
+        <% if current_user %><td><%= @user.name %></td><% end %>
+        <td><%= form.text_field :name %></td>
+        
+    </tr>
+    <tr>
+        <td><%= form.label "ひとこと" %></td>
+        <% if current_user %><td><%= @user.description %></td><% end %>
+        <td><%= form.text_field :description %></td>
+        
+    </tr>
+    <tr>
+        <td><%= form.label "パスワード" %></td>
+        <td><%= form.text_field :password %></td>
+    </tr>
+    <tr>
+        <td><%= form.label :new_profile_picture %></td>
+        <td>
+            <%= form.file_field :new_profile_picture %>
+            <% if @user.profile_picture.attached? %>
+                <div>
+                    <%= image_tag @user.profile_picture.variant(resize: "128x128") %>
+                    <%= form.check_box :remove_profile_picture %>
+                    <%= form.label :remove_profile_picture %>
+                </div>
+            <% end %>
+        </td>
+    </tr>
+
+</table>

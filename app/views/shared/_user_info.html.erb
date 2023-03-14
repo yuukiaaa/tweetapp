@@ -1,0 +1,24 @@
+<div>
+    <div class="card">
+        <div class="card-body">
+            <div class="card-title">
+                <h5>私の情報</h5>
+            </div>
+            <% if current_user.profile_picture&.attached? %>
+                <%= image_tag current_user.profile_picture.variant(resize: "64x64") %>
+            <% end %>
+            <div class="row">
+                <div class="col-sm-4">
+                    <p>名前</P>
+                    <p>紹介文</p>
+                    <p>管理者</p>
+                </div>
+                <div class="col-sm-8">
+                    <p><%= current_user.name %></p>
+                    <p><%= current_user.description %></p>
+                    <p><%= current_user.administrator %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

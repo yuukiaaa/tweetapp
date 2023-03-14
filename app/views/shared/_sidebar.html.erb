@@ -1,0 +1,16 @@
+<%= render "shared/user_info" if current_user %>
+
+<%= render "shared/login_form" unless current_user %>
+<%= link_to "新規登録はコチラ", new_account_path, class: "btn btn-primary mt-4" unless current_user %>
+
+<%
+ articles = Article.visible.order(released_at: :desc).limit(5)
+ articles = articles.open_to_the_public unless current_user
+%>
+
+<p class="h6 mt-3">最近の記事</p>
+<ul class="list-group">
+    <% articles.each do |article| %>
+        <%= link_to article.title, article, class: "list-group-item list-group-item-action" %>
+    <% end %>
+</ul>

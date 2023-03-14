@@ -1,0 +1,19 @@
+<div class="container rounded bg-light p-4">
+    <h2 class="display-6">ログイン</h2>
+    <% if flash.alert %><p class="alert"><%= flash.alert %></p><% end %>
+    <%= form_with url: session_path, id:"login_form", local: true do |form| %>
+        <div class="form-group">
+            <div>
+                <%= form.label :name, "ユーザー名" %>
+                <%= form.text_field :name, class: "form-control" %>
+            </div>
+            <div>
+                <%= form.label :password, "パスワード" %>
+                <%= form.text_field :password, class: "form-control" %>
+            </div>
+            <div>
+                <%= form.submit "ログイン", class: "btn btn-info m-2" %>
+            </div>
+        </div>
+    <% end %>
+</div>

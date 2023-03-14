@@ -1,0 +1,27 @@
+<% if current_user %>
+  <nav id="js-navbar">
+    <div class="container-fluid">
+      <%= current_user.name + "さん" %>
+
+      <div id="navbarSupportedContent">
+        <ul id="js-nav__menu">
+          <%= link_to "私のアカウント情報", show_tweeter_item_path(current_user.id), class: "nav-link" %>
+          <%= link_to "ログアウト", :session, method: 'delete', data: {confirm: "ログアウトしますか"}, class: "nav-link" %>
+          <%= if controller.kind_of?(Admin::Base)
+              render "shared/admin_menubar"
+            else
+              render "shared/menubar"
+            end
+          %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="hamburger" id="js-hamburger">
+      <span>━</span>
+      <span>━</span>
+      <span>━</span>
+  </div>
+
+<% end %>
