@@ -47,8 +47,17 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+# production:
+#  <<: *default
+#  database: app_production
+#  username: root
+#  password: <%= ENV['APP_DATABASE_PASSWORD'] %>
+#  socket: /var/lib/mysql/mysql.sock
+
+# /config/credentials.yml.enc の内容を参照する
 production:
   <<: *default
-  database: app_production
-  username: app
-  password: <%= ENV['APP_DATABASE_PASSWORD'] %>
+  database: <%= Rails.application.credentials.db[:database] %>
+  username: <%= Rails.application.credentials.db[:username] %>
+  password: <%= Rails.application.credentials.db[:password] %>
+  socket: <%= Rails.application.credentials.db[:socket] %>

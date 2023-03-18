@@ -76,4 +76,4 @@ gem 'jquery-rails'
 gem 'mini_magick', '~> 4.8'
 
 # for javascript runtime
-gem 'mini_racer'
+#gem 'execjs'
